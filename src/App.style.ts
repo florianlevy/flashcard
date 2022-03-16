@@ -1,15 +1,17 @@
 import styled from 'styled-components'
 import {
-  AppBar,
   BottomNavigation,
   Avatar
 } from '@material-ui/core'
 
-export const Header = styled(AppBar)`
-  .toolbar {
-    display: flex;
-    justify-content: flex-end;
-  }
+export const Header = styled.header`
+  height: 60px;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  background: white;
+  padding: 10px 15px;
 `
 
 export const SrtyledAvatar = styled(Avatar)`

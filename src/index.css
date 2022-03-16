@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+
 html{
   height: 100%;
 }
@@ -23,4 +25,10 @@ code {
 }
 .App {
   height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding:0;
 }

@@ -8,4 +8,7 @@ export const ReviewPageStyle = styled.div`
 
 export const NextFlashCard = styled.div`
   margin-bottom: 15px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
 `

@@ -12,6 +12,7 @@ import { useHistory } from 'react-router-dom';
 import { FlashCard } from '../../types/FlashCard.type'
 import { useDispatch } from 'react-redux'
 import { saveFlashcard } from '../../reducers/FlashCard/FlashCard.reducer'
+import { ApplicationLayoutComponent } from '../../Components/Layout/Application.layout.component'
 
 export const AddPage: React.FC = () => {
   const history = useHistory()
@@ -30,6 +31,7 @@ export const AddPage: React.FC = () => {
     dispatch(saveFlashcard({flashCard, history}))
   }
   return (
+    <ApplicationLayoutComponent>
       <AddPageStyle>
         <Form>
           <FormItem>
@@ -67,5 +69,6 @@ export const AddPage: React.FC = () => {
           </FormItemButton>
         </Form>
       </AddPageStyle>
+    </ApplicationLayoutComponent>
   )
 }

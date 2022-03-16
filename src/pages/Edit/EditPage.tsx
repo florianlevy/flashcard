@@ -18,6 +18,7 @@ import {
 } from 'react-redux'
 import { saveFlashcard } from '../../reducers/FlashCard/FlashCard.reducer'
 import { getFlashCardById } from '../../selectors/FlashCard/flashCard.selector'
+import { ApplicationLayoutComponent } from '../../Components/Layout/Application.layout.component'
 
 export const EditPage: React.FC = () => {
   const history = useHistory()
@@ -41,42 +42,44 @@ export const EditPage: React.FC = () => {
     dispatch(saveFlashcard({flashCard: flashCardEdited, history}))
   }
   return (
+    <ApplicationLayoutComponent>
       <EditPageStyle>
-        <Form>
-          <FormItem>
-            <TextField id="outlined-basic" label="Title" variant="outlined" value={title} onChange={(content) => {
-              setTitle(content.target.value)
-            }}/>
-          </FormItem>
-          <FormItem>
-            <Editor
-                apiKey='do2a1y6y0th6odeehz6yam3k4t8lmc1vcyamm1zvxyue4t82'
-                initialValue={flashCard?.content}
-                init={{
-                  height: 400,
-                  menubar: false,
-                  plugins: [
-                    'advlist autolink lists link image charmap print preview anchor',
-                    'searchreplace visualblocks code fullscreen',
-                    'insertdatetime media table paste code help wordcount'
-                  ],
-                  toolbar:
-                  // eslint-disable-next-line no-multi-str
-                      'undo redo | formatselect | bold italic backcolor | \
-                      alignleft aligncenter alignright alignjustify | \
-                      bullist numlist outdent indent | removeformat | help'
-                }}
-                onChange={(content) => {
-                  setContent(content.target.getContent())
-                }}
-            />
-          </FormItem>
-          <FormItemButton>
-            <Button variant="contained" color="primary" disableElevation onClick={handleSaveClick}>Salvar</Button>
-            <Spacer />
-            <Button variant="contained" color="default" disableElevation onClick={handleCancelClick}>Cancellar</Button>
-          </FormItemButton>
-        </Form>
-      </EditPageStyle>
+          <Form>
+            <FormItem>
+              <TextField id="outlined-basic" label="Title" variant="outlined" value={title} onChange={(content) => {
+                setTitle(content.target.value)
+              }}/>
+            </FormItem>
+            <FormItem>
+              <Editor
+                  apiKey='do2a1y6y0th6odeehz6yam3k4t8lmc1vcyamm1zvxyue4t82'
+                  initialValue={flashCard?.content}
+                  init={{
+                    height: 400,
+                    menubar: false,
+                    plugins: [
+                      'advlist autolink lists link image charmap print preview anchor',
+                      'searchreplace visualblocks code fullscreen',
+                      'insertdatetime media table paste code help wordcount'
+                    ],
+                    toolbar:
+                    // eslint-disable-next-line no-multi-str
+                        'undo redo | formatselect | bold italic backcolor | \
+                        alignleft aligncenter alignright alignjustify | \
+                        bullist numlist outdent indent | removeformat | help'
+                  }}
+                  onChange={(content) => {
+                    setContent(content.target.getContent())
+                  }}
+              />
+            </FormItem>
+            <FormItemButton>
+              <Button variant="contained" color="primary" disableElevation onClick={handleSaveClick}>Salvar</Button>
+              <Spacer />
+              <Button variant="contained" color="default" disableElevation onClick={handleCancelClick}>Cancellar</Button>
+            </FormItemButton>
+          </Form>
+        </EditPageStyle>
+    </ApplicationLayoutComponent>
   )
 }
